@@ -1,0 +1,33 @@
+{
+  "name": "localstack-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:watch": "nodemon index.js",
+    "start:localstack": "sleep 5 && npm run start:watch",
+    "test:integration": "NODE_CONFIG_DIR=test-integration/config mocha --timeout 5000 ./test-integration",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --fix --ext .js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.412.0",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "config": "^3.0.1",
+    "express": "^4.16.4",
+    "http-status-codes": "^1.3.0",
+    "simple-node-logger": "^18.12.22"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.14.1",
+    "eslint-config-google": "^0.12.0",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
+  }
+}

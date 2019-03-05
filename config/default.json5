@@ -1,0 +1,22 @@
+{
+    dynamo: {
+        region: 'eu-central-1',
+        endpoint: 'http://localstack:4569',
+        itemsTable: 'items',
+    },
+    sqs: {
+        initParams: {
+            apiVersion: '2012-11-05',
+            endpoint: 'http://localstack:4576',
+            region: 'eu-central-1',
+        },
+        receiveParams: {
+            MaxNumberOfMessages: 10,
+            MessageAttributeNames: [
+                'All'
+            ],
+            WaitTimeSeconds: 20,
+            QueueUrl: 'http://localstack:4576/queue/items-queue',
+        }
+    }
+}

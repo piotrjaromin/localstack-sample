@@ -1,0 +1,18 @@
+{
+    itemsEndpoint: 'http://localhost:3000/items',
+    dynamo: {
+        region: 'eu-central-1',
+        endpoint: 'http://localhost:4569',
+        itemsTable: 'items'
+    },
+    sqs: {
+        initParams: {
+            apiVersion: '2012-11-05',
+            endpoint: 'http://localhost:4576',
+            region: 'eu-central-1',
+        },
+        sendParams: {
+            QueueUrl: 'http://localhost:4576/queue/items-queue'
+        }
+    }
+}

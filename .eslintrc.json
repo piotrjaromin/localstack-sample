@@ -1,0 +1,12 @@
+{
+    "extends": "google",
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "require-jsdoc": 0,
+        "max-len": 0,
+        "indent": ["error", 4],
+        "arrow-parens": 0
+    }
+}
