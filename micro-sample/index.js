@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const docClient = new DynamoDB.DocumentClient({
     region: 'eu-central-1',
-    endpoint: 'http://localstack:4569',
+    endpoint: 'http://localstack:4569', // localstack address inside docker-compose!
 });
 
 app.use(bodyParser.json());

@@ -29,12 +29,6 @@ services:
     volumes:
       - "~/tmp/localstack:/tmp/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
-      interval: 10s
-      timeout: 10s
-      retries: 6
-      start_period: 5s
 
   setup-localstack:
     image: cgswong/aws

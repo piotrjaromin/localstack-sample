@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "start:watch": "nodemon index.js",
+    "test:integration": "mocha --timeout 5000 ./test-integration"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "aws-sdk": "^2.437.0",
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.3"
   }
 }
