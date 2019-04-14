@@ -3,17 +3,19 @@
 Nodejs project with localstack integration tests. It uses dynamoDB and SQS, docker compose allows for running integration tests in complete isolation from real AWS services.
 
 1. Application exposes few endpoints:
-    - GET http://lcoalhost:3000/items/{id} where id is item already existing in dynamodb
-    - GET http://lcoalhost:3000/items returns all saved items
-    - POST http://lcoalhost:3000/items will save json payload sent to this endpoint into dynamodb
+    - GET `http://lcoalhost:3000/items/{id}` returns single item with given `id`
+    - GET `http://lcoalhost:3000/items` returns all saved items from dynamodb
+    - POST `http://lcoalhost:3000/items` will save json payload sent to this endpoint into dynamodb
 2. Application also listens on SQS events, when new event is received it is saved into dynamodb
 
+Implementation of integration tests can be found in `test-integration` directory
 
 ## How to run
 
 docker, nodejs, npm must be installed
 
 ```bash
+docker-compose build
 docker-compose up
 ```
 
@@ -23,7 +25,7 @@ wait for everything to be set up and in separate terminal type:
 npm run test:integration
 ```
 
-You can check initialized services by going to http://lcoalhost:8080, this will expose localstack console which should show sqs and dynamodb resources.
+You can check initialized services by going to http://localhost:8080 this will expose localstack console which should show sqs and dynamodb resources.
 
 ## Micro sample
 
