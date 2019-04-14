@@ -7,9 +7,6 @@ services:
       - setup-localstack
     ports:
       - '3000:3000'
-    # un comment for debugging
-    #   - '9229:9229'
-    # command: start:debug
     environment:
       # We are setting this AWS_* variables to aws-sdk can find them
       # localstack does not care about validity of those values
@@ -18,7 +15,6 @@ services:
     volumes:
       - .:/home/node/app/
       - /home/node/app/node_modules/
-    command: "start:localstack"
 
   localstack:
     image: localstack/localstack
@@ -26,7 +22,7 @@ services:
       - "4567-4584:4567-4584"
       - "8080:8080"
     environment:
-      - SERVICES=sqs,dynamodb
+      - SERVICES=dynamodb
       - PORT_WEB_UI=8080
       - DOCKER_HOST=unix:///var/run/docker.sock
       - DEFAULT_REGION=eu-central-1
@@ -44,11 +40,11 @@ services:
     image: cgswong/aws
     command: /init-localstack.sh
     environment:
-    # We are setting this AWS_* variables to aws-sdk can find them
-    # localstack does not care about validity of those values
-    - "AWS_ACCESS_KEY_ID=dummy-key-id"
-    - "AWS_SECRET_ACCESS_KEY=dummy-secret-key"
-    - "AWS_REGION=eu-central-1"
+      # We are setting this AWS_* variables to aws-sdk can find them
+      # localstack does not care about validity of those values
+      - "AWS_ACCESS_KEY_ID=dummy-key-id"
+      - "AWS_SECRET_ACCESS_KEY=dummy-secret-key"
+      - "AWS_REGION=eu-central-1"
     depends_on:
       - localstack
     volumes:

@@ -7,7 +7,7 @@ const {dynamo, sqs} = require('config');
 const logger = require('simple-node-logger').createSimpleLogger();
 const {INTERNAL_SERVER_ERROR} = require('http-status-codes');
 
-const initItemsEndpoints = require('./lib/notes-endpoints');
+const initItemsEndpoints = require('./lib/items-endpoints');
 const sqsEventHandler = require('./lib/aws/sqs-event-handler');
 const createDynamo = require('./lib/aws/dynamodb');
 
