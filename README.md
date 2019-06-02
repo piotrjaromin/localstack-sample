@@ -16,6 +16,12 @@ To save data in dynamo db just call following bash:
 curl -X POST http://localhost:3000/items -H "Content-type: application/json" -d '{"id": "test-id"}'
 ```
 
+docker-compose starts 3 containers:
+
+- service container which saves data to dynamodb from http endpoint and from sqs
+- localstack container with dynamodb and sqs running
+- aws setup container which creates dynamodb and sqs in localstack during startup
+
 ## How to run
 
 docker, nodejs, npm must be installed
